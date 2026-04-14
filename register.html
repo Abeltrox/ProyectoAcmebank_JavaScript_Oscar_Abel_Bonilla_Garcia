@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Banco Acme — Crear Cuenta</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+<div class="auth-page">
+
+  <aside class="auth-brand">
+    <div class="brand-logo">
+      <div class="logo-icon">🏦</div>
+      <span class="logo-text">Banco Acme</span>
+    </div>
+    <p class="brand-tagline">Abre tu cuenta en minutos</p>
+    <p class="brand-sub">Sin filas, sin papeleos. Todo desde la comodidad de tu casa.</p>
+    <div class="brand-features">
+      <div class="brand-feat"><span class="icon">🎉</span> Sin costo de apertura</div>
+      <div class="brand-feat"><span class="icon">🛡️</span> Datos protegidos</div>
+      <div class="brand-feat"><span class="icon">🏧</span> Acceso inmediato</div>
+    </div>
+  </aside>
+
+  <div class="auth-form-area">
+    <!-- Formulario de registro -->
+    <div id="register-section" class="auth-card fade-in" style="max-width:560px;">
+      <h2>Crear cuenta</h2>
+      <p class="subtitle">Completa todos los datos para abrir tu cuenta bancaria</p>
+
+      <div id="register-alert"></div>
+
+      <form id="register-form" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="tipoId">Tipo de identificación *</label>
+            <select id="tipoId" class="form-control" required>
+              <option value="">Selecciona...</option>
+              <option value="CC">Cédula (CC)</option>
+              <option value="CE">Cédula extranjería (CE)</option>
+              <option value="PA">Pasaporte (PA)</option>
+              <option value="TI">Tarjeta identidad (TI)</option>
+            </select>
+            <span class="field-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="numeroId">Número de identificación *</label>
+            <input type="text" id="numeroId" class="form-control" placeholder="1234567890" required />
+            <span class="field-error"></span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nombres">Nombres *</label>
+            <input type="text" id="nombres" class="form-control" placeholder="Ej. Juan Carlos" required />
+            <span class="field-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="apellidos">Apellidos *</label>
+            <input type="text" id="apellidos" class="form-control" placeholder="Ej. Pérez Gómez" required />
+            <span class="field-error"></span>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="genero">Género *</label>
+            <select id="genero" class="form-control" required>
+              <option value="">Selecciona...</option>
+              <option value="M">Masculino</option>
+              <option value="F">Femenino</option>
+              <option value="O">Otro / Prefiero no decir</option>
+            </select>
+            <span class="field-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="telefono">Teléfono *</label>
+            <input type="tel" id="telefono" class="form-control" placeholder="3001234567" required />
+            <span class="field-error"></span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Correo electrónico *</label>
+          <input type="email" id="email" class="form-control" placeholder="correo@ejemplo.com" required />
+          <span class="field-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="direccion">Dirección de residencia *</label>
+          <input type="text" id="direccion" class="form-control" placeholder="Calle 10 # 5-20" required />
+          <span class="field-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="ciudad">Ciudad *</label>
+          <input type="text" id="ciudad" class="form-control" placeholder="Bogotá" required />
+          <span class="field-error"></span>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="password">Contraseña *</label>
+            <input type="password" id="password" class="form-control" placeholder="Mínimo 8 caracteres" required />
+            <span class="field-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword">Confirmar contraseña *</label>
+            <input type="password" id="confirmPassword" class="form-control" placeholder="Repite la contraseña" required />
+            <span class="field-error"></span>
+          </div>
+        </div>
+
+        <div class="d-flex gap-2 mt-3">
+          <a href="index.html" class="btn btn-outline btn-full">Cancelar</a>
+          <button type="submit" class="btn btn-primary btn-full">Crear cuenta</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Resumen de apertura -->
+    <div id="success-section" class="auth-card fade-in hidden" style="max-width:480px; text-align:center;">
+      <div style="font-size:3rem; margin-bottom:1rem;">🎉</div>
+      <h2>¡Cuenta creada!</h2>
+      <p class="subtitle">Tu cuenta bancaria ha sido aperturada exitosamente</p>
+      <div class="receipt" style="margin:1.5rem 0; text-align:left;">
+        <div class="receipt-header">
+          <div class="receipt-logo">🏦 BANCO ACME</div>
+          <div class="receipt-title">Resumen de apertura</div>
+        </div>
+        <div class="receipt-row"><span class="label">Titular</span><span class="value" id="sum-nombre"></span></div>
+        <div class="receipt-row"><span class="label">Identificación</span><span class="value" id="sum-id"></span></div>
+        <div class="receipt-row"><span class="label">N° de cuenta</span><span class="value" id="sum-cuenta" style="font-family:monospace;letter-spacing:0.1em;"></span></div>
+        <div class="receipt-row"><span class="label">Fecha apertura</span><span class="value" id="sum-fecha"></span></div>
+        <div class="receipt-row"><span class="label">Saldo inicial</span><span class="value" style="color:var(--success)">$0</span></div>
+      </div>
+      <div id="redirect-countdown" class="hidden" style="margin-bottom:1rem;"><div class="alert alert-info" style="justify-content:center;text-align:center;">⏱️ Redirigiendo en <strong id="countdown-num">5</strong> segundos...</div></div>
+      <button id="btn-ir-login" class="btn btn-primary btn-full btn-lg">Ir a Iniciar sesión ahora →</button>
+    </div>
+  </div>
+
+</div>
+
+<script type="module" src="js/register.js"></script>
+</body>
+</html>

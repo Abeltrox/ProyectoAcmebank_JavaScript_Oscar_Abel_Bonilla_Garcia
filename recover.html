@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Banco Acme — Recuperar Contraseña</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+<div class="auth-page">
+
+  <aside class="auth-brand">
+    <div class="brand-logo">
+      <div class="logo-icon">🏦</div>
+      <span class="logo-text">Banco Acme</span>
+    </div>
+    <p class="brand-tagline">Recupera el acceso a tu cuenta</p>
+    <p class="brand-sub">Verifica tu identidad y restablece tu contraseña de forma segura.</p>
+    <div class="brand-features">
+      <div class="brand-feat"><span class="icon">🔐</span> Verificación de identidad</div>
+      <div class="brand-feat"><span class="icon">✉️</span> Validación por correo</div>
+      <div class="brand-feat"><span class="icon">🔄</span> Nueva contraseña inmediata</div>
+    </div>
+  </aside>
+
+  <div class="auth-form-area">
+
+    <!-- Paso 1: Verificar identidad -->
+    <div id="verify-section" class="auth-card fade-in">
+      <h2>Recuperar contraseña</h2>
+      <p class="subtitle">Verifica tu identidad para restablecer tu contraseña</p>
+
+      <div id="verify-alert"></div>
+
+      <form id="verify-form" novalidate>
+        <div class="form-group">
+          <label for="tipoId">Tipo de identificación</label>
+          <select id="tipoId" class="form-control" required>
+            <option value="">Selecciona...</option>
+            <option value="CC">Cédula de ciudadanía (CC)</option>
+            <option value="CE">Cédula de extranjería (CE)</option>
+            <option value="PA">Pasaporte (PA)</option>
+            <option value="TI">Tarjeta de identidad (TI)</option>
+          </select>
+          <span class="field-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="numeroId">Número de identificación</label>
+          <input type="text" id="numeroId" class="form-control" placeholder="1234567890" required />
+          <span class="field-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Correo electrónico registrado</label>
+          <input type="email" id="email" class="form-control" placeholder="correo@ejemplo.com" required />
+          <span class="field-error"></span>
+        </div>
+
+        <div class="d-flex gap-2 mt-3">
+          <a href="index.html" class="btn btn-outline btn-full">Cancelar</a>
+          <button type="submit" class="btn btn-primary btn-full">Verificar identidad</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Paso 2: Nueva contraseña -->
+    <div id="reset-section" class="auth-card fade-in hidden">
+      <div style="font-size:2rem; margin-bottom:0.75rem; text-align:center;">🔑</div>
+      <h2>Nueva contraseña</h2>
+      <p class="subtitle">Crea una contraseña segura para tu cuenta</p>
+
+      <div id="reset-alert"></div>
+
+      <form id="reset-form" novalidate>
+        <div class="form-group">
+          <label for="newPassword">Nueva contraseña</label>
+          <input type="password" id="newPassword" class="form-control" placeholder="Mínimo 8 caracteres" required />
+          <span class="field-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="confirmNewPassword">Confirmar nueva contraseña</label>
+          <input type="password" id="confirmNewPassword" class="form-control" placeholder="Repite la contraseña" required />
+          <span class="field-error"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full btn-lg mt-2">
+          Restablecer contraseña
+        </button>
+      </form>
+    </div>
+
+    <!-- Paso 3: Éxito -->
+    <div id="done-section" class="auth-card fade-in hidden" style="text-align:center;">
+      <div style="font-size:3rem; margin-bottom:1rem;">✅</div>
+      <h2>¡Contraseña actualizada!</h2>
+      <p class="subtitle" style="margin-bottom:2rem;">Tu contraseña ha sido restablecida correctamente. Ya puedes iniciar sesión.</p>
+      <a href="index.html" class="btn btn-primary btn-full btn-lg">Ir a Iniciar sesión</a>
+    </div>
+
+  </div>
+</div>
+
+<script type="module" src="js/recover.js"></script>
+</body>
+</html>

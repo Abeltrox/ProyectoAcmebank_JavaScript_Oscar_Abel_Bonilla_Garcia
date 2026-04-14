@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Banco Acme — Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<div class="dashboard-layout">
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <button class="hamburger" id="hamburger" aria-label="Menú">☰</button>
+    <div class="topbar-brand">
+      <div class="logo-icon">🏦</div>
+      Banco Acme
+    </div>
+    <div class="topbar-spacer"></div>
+    <div class="topbar-user">
+      <div class="avatar" id="user-avatar">AB</div>
+      <span id="user-greeting">Bienvenido</span>
+    </div>
+  </header>
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-label">Principal</div>
+      <button class="nav-item active" data-view="home">
+        <span class="nav-icon">🏠</span> Inicio
+      </button>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">Operaciones</div>
+      <button class="nav-item" data-view="transactions">
+        <span class="nav-icon">📋</span> Resumen de transacciones
+      </button>
+      <button class="nav-item" data-view="consignacion">
+        <span class="nav-icon">💰</span> Consignación electrónica
+      </button>
+      <button class="nav-item" data-view="retiro">
+        <span class="nav-icon">🏧</span> Retiro de dinero
+      </button>
+      <button class="nav-item" data-view="servicios">
+        <span class="nav-icon">🧾</span> Pago de servicios
+      </button>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">Documentos</div>
+      <button class="nav-item" data-view="certificado">
+        <span class="nav-icon">📜</span> Certificado bancario
+      </button>
+    </div>
+
+    <div class="sidebar-section">
+      <button class="nav-item logout" id="logout-btn">
+        <span class="nav-icon">🚪</span> Cerrar sesión
+      </button>
+    </div>
+  </nav>
+
+  <!-- OVERLAY (mobile) -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content" id="main-content">
+    <!-- Se carga dinámicamente via JS -->
+    <div class="empty-state"><div class="icon">⏳</div><p>Cargando...</p></div>
+  </main>
+
+</div>
+
+<script type="module" src="js/dashboard.js"></script>
+</body>
+</html>
